@@ -1,6 +1,6 @@
 public class Persona
 {
-   public int dni{get; private set;}
+   public int dni{get; set;}
    public string apellido{get; set;}
    public string nombre{get; set;}
    public DateTime fechaNacimiento{get; set;}
@@ -15,7 +15,7 @@ public class Persona
       this.email = email;
    }
 
-   static int obtenerEdad(DateTime fechaNacimiento)
+   public int obtenerEdad()
    {
       DateTime fechaActual = DateTime.Now;
       int edad = fechaActual.Year - fechaNacimiento.Year;
@@ -24,8 +24,8 @@ public class Persona
       return edad;
    }
 
-   static bool puedeVotar(DateTime fechaNacimiento)
+   public bool puedeVotar()
    {
-      return obtenerEdad(fechaNacimiento) >= 16;
+      return obtenerEdad() >= 16;
    }
 }
